@@ -13,28 +13,15 @@ class Scraper
 
   @page = Nokogiri::HTML(open("http://www.amazon.com/Best-Sellers/zgbs"))
  
- 
-  
 
   def self.dep 
      @page.css('.zg_homeWidget > h3').collect{|x| x.text} 
   end 
 
-
-  def self.stars   
-     @page.css(".a-icon-alt").collect{|x| x.text.strip}
-  end 
-
-      
+  
   def self.item_name
-    @page.css(".zg_title").collect{|x| x.text.strip}
+    @page.css(".zg_title").collect{|x| x.text.strip} 
   end 
-
-   
-  def self.rev_num   
-    @page.css(".a-size-small a").collect{|x| x.text}
-  end 
-
 
 
  def self.product_link 
