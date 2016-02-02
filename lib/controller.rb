@@ -93,10 +93,12 @@ class Controller
          Controller.list 
       end 
         
+        if input != "exit"
         puts "Choose a different department, type list to list the departments again, or type exit to exit."
-  
-    end 
+        end 
         
+    end 
+       puts "Thanks for using!" 
   end 
 
 end 
