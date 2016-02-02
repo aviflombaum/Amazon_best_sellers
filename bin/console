@@ -9,12 +9,12 @@ require "Amazon_Best_Sellers"
 # (If you use this, don't forget to add pry to your Gemfile!)
 
 
-require "irb"
-IRB.start
+#require "irb"
+#IRB.start
 
 
 
 
 
-require "pry"
- Pry.start
+#require "pry"
+ #Pry.start

@@ -1,4 +1,3 @@
-require_relative "../lib/department.rb"
 require_relative "../lib/controller.rb"
 
 
@@ -9,7 +8,7 @@ require 'pry'
 
 class Scraper 
  
-  attr_accessor :departments, :cat, :page
+attr_accessor :page 
 
   @page = Nokogiri::HTML(open("http://www.amazon.com/Best-Sellers/zgbs"))
  

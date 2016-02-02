@@ -1,13 +1,13 @@
 require_relative "../lib/scraper.rb"
-require_relative "../lib/department.rb"
+
 
 require 'pry'
 
 class Controller 
-   #attr_accessor :item, :company, :stars, :reviews, :dep, :link 
+  
   
   def self.welcome
-     puts "Welcome to the Amazon Best Seller Listing Gem.\nThe following are the departments by which you may choose from."
+     puts "Welcome to the Amazon Best Sellers Listing Gem.\nThe following are the departments by which you may choose from."
   end 
 
                     
@@ -96,7 +96,7 @@ class Controller
         puts "Choose a different department, type list to list the departments again, or type exit to exit."
   
     end 
-
+        
   end 
 
 end 
