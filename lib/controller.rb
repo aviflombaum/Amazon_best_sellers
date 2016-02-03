@@ -1,4 +1,3 @@
-
 class AmazonBestSellers::Controller 
    attr_accessor :items, :deps 
   

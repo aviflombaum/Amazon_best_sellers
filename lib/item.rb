@@ -1,6 +1,3 @@
-#require_relative "../lib/controller.rb"
-#require_relative "../lib/scraper.rb"
-
 class AmazonBestSellers::Item 
  
  attr_accessor :name, :link, :company, :dep 

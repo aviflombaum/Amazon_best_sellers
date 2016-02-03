@@ -1,12 +1,3 @@
-require_relative "../lib/controller.rb"
-require_relative "../lib/item.rb"
-require_relative "../lib/department.rb"
-
-
-require 'open-uri'
-require 'nokogiri'
-require 'pry'
-
 class AmazonBestSellers::Scraper 
   
   def get_items 
