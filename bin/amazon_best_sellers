@@ -3,3 +3,6 @@
 require "bundler/setup"
 require "Amazon_Best_Sellers"
 
+
+AmazonBestSellers::Controller.new.welcome
+

@@ -1,52 +1,33 @@
 require_relative "../lib/controller.rb"
-
+require_relative "../lib/item.rb"
+require_relative "../lib/department.rb"
 
 
 require 'open-uri'
 require 'nokogiri'
 require 'pry'
 
-class Scraper 
- 
-attr_accessor :page 
+class AmazonBestSellers::Scraper 
+  
+  def get_items 
+      
+     page = Nokogiri::HTML(open("http://www.amazon.com/Best-Sellers/zgbs"))
 
-  @page = Nokogiri::HTML(open("http://www.amazon.com/Best-Sellers/zgbs"))
- 
+     page.css(".zg_item").each do |item|
 
-  def self.dep 
-     @page.css('.zg_homeWidget > h3').collect{|x| x.text} 
+     dep_name = item.parent.css("h3").text
+  
+    item_name =  item.css(".zg_title").text.strip 
+ 
+    item_link =  "www.amazon.com" + item.css("a")[0]["href"]
+
+    item_company = item.css(".zg_itemInfo").children[3].text.strip
+
+   new_item = AmazonBestSellers::Item.new(item_name, item_link, item_company, dep_name)
+    
+    AmazonBestSellers::Department.find_or_create_by_name(dep_name).items <<  new_item
+   end 
   end 
 
-  
-  def self.item_name
-    @page.css(".zg_title").collect{|x| x.text.strip} 
-  end 
+end 
 
-
- def self.product_link 
-    h = []
-    i = 1
-  
-    Scraper.item_name.count.times do |i|
-
-     h << "www.amazon.com" + @page.css(".zg_title a")[i]["href"]
-    end 
-   h 
- end 
- 
- 
-
- def self.item_company   
-    h = []
-    i = 1
-  
-    Scraper.item_name.count.times do |i|
-
-     h << @page.css(".zg_itemInfo")[i].css("span")[1].text.strip
-    end 
-    h 
-  
- end 
-
- 
-end
